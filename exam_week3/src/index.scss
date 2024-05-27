@@ -1,0 +1,21 @@
+@import './component/Button/button.scss';
+@import './component/Header/header.scss';
+@import './component/NavBar/navbar.scss';
+@import './component/Product/product.scss';
+@import './component/ProductsList/productsList.scss';
+@import './component/ThemeSwitcher/themeSwitcher.scss';
+@import './page/Cart/cart.scss';
+@import './page/Home/home.scss';
+@import './page/UserProfile/userProfile.scss';
+@import './theme.scss';
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+    color: var(--text-color)
+}
+
+body{
+    background-color: var(--background-color);
+}

@@ -1,0 +1,22 @@
+:root {
+    //fond de la page : blanc
+    --background-color: #ffffff;
+    //couleur du texte (sauf catégorie) : noir
+    --text-color: #000000;
+    //couleur de la catégorie : gris foncé : à tester
+    --secondary-text-color : #919191;
+    // couleur background jaune de la navbar + bouton
+    --primary-color: #eab023;
+    // background categorie : gris clair
+    --secondary-color: #c0c0c0;
+    //pas encore utilisee
+    --error-color: #b00020;
+  }
+  
+  body.dark-mode {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --primary-color: #bb86fc;
+    --secondary-color: #03dac6;
+    --error-color: #cf6679;
+  }
