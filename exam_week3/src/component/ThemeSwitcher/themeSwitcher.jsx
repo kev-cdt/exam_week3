@@ -14,7 +14,7 @@ const ThemeSwitcher = () => {
     }, [currentTheme]);
 
     return (
-        <button onClick={() => dispatch(toggleTheme())}>
+        <button className="switchTheme"  onClick={() => dispatch(toggleTheme())}>
         {currentTheme === 'light' ? (
     <>
                         <FaMoon /> Dark Mode

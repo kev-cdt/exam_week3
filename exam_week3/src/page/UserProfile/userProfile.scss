@@ -1,0 +1,15 @@
+.content-user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+  .content-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    .input-form-user-profile {
+        margin-left: 10px;
+    }
+  }
+}
