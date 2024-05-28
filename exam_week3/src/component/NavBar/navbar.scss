@@ -1,7 +1,9 @@
 .navlinks-container {
     display: flex;
+    align-items: center;
+    gap: 2em;
 
-    ul {
+    .navlink{
         display: flex;
         align-items: center;
         gap: 10px;

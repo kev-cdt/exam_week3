@@ -6,6 +6,7 @@ import {
   updateField,
 } from "../../store/slice/userProfileSlice";
 import { user } from "../../store/selector/selector";
+import Button from "../../component/Button/button";
 
 const UserProfile = () => {
   const dispatch = useDispatch();
@@ -59,7 +60,7 @@ const UserProfile = () => {
     <div className="content-user-profile">
       <h2>Hi {updatedUserData.name.firstname}!</h2>
       <h3>Customize your profile here</h3>
-      <form className="content-form" onSubmit={handleSubmit}>
+      <form className="content-form">
         <label htmlFor={"firstname"}>
           Your firstname :
           <input
@@ -94,7 +95,7 @@ const UserProfile = () => {
           />
         </label>
         {isSending === true ? <p>Data saved</p> : null}
-        <input type="submit" value="Submit" />
+        <Button onClick={handleSubmit} text="Save"/>
       </form>
     </div>
   );

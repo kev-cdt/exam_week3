@@ -16,16 +16,22 @@
     color: var(--text-color)
 }
 
+
 body{
     background-color: var(--background-color);
 }
 
- a {
+h1, h2, h3, h4, p, label {
+    color: var(--text-color);
+    margin:0px;
+}
+
+a {
     text-decoration: none;
     color: var(--text-color);
     cursor:pointer
 }
 
-button {
-    cursor:pointer;
+.icon{
+    font-size: 16px
 }

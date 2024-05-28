@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/slice/cartSlice";
+import Button from "../Button/button";
 
 const Product = ({ id, title, price, category, description, image }) => {
 
@@ -16,9 +17,9 @@ const Product = ({ id, title, price, category, description, image }) => {
                 <img src={image}/>
             </div>
             <div className='product-informations'>
-                <h3>{title} </h3>
-                <div className='category-card'>
-                    <p>{category}</p>
+                <div>
+                <h3 className="product-title">{title} </h3>
+                <p className="category-card">{category}</p>
                 </div>
                 <p>{description}</p>
                 <h3>{price} $</h3>
@@ -26,7 +27,7 @@ const Product = ({ id, title, price, category, description, image }) => {
                     <p>Quantity : </p>
                     <input name='product-qty' type='number' value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} min="1" ></input>
                 </div>
-                <button className='add-cart-btn' onClick={handleAddToCart}>Add to basket</button>
+                <Button onClick={handleAddToCart} text="Add to basket"/>
             </div>
         </li>
     )
