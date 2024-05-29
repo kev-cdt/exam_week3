@@ -46,6 +46,10 @@
         }
         .qty-counter {
             display: flex;
+            >input{
+                margin-left: 1em;
+                max-width: 30px;
+            }
         }
     }
 
