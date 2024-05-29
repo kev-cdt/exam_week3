@@ -2,5 +2,12 @@ header {
     background-color: var(--primary-color);
     display: flex;
     justify-content: space-between;
-    padding: 0 30px;
+    align-items: center;
+    padding: 5px 30px;
+    position: sticky;
+    top: 0px;
+
+    @media screen and (max-width: 700px) {
+        padding: 5px 10px;
+    }
 }

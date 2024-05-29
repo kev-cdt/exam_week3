@@ -40,7 +40,6 @@ const ProductsList = () => {
 
     return (
         <div className='productlist-container'>
-            <h1>Task List</h1>
             <ul className='product-grid'>
                 {productList.map(product => (
                     <Product key={product.id} {...product} />

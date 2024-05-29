@@ -12,9 +12,8 @@ const UserProfile = () => {
   const dispatch = useDispatch();
   const userData = useSelector(user);
   //   console.log("user data", userData)
-  const [isSending, setIsSending] = useState(false);
   const [updatedUserData, setUpdatedUserData] = useState(userData);
-  // console.log("updated user data", updatedUserData)
+  const [validation, setValidation] = useState(false)
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -45,12 +44,20 @@ const UserProfile = () => {
         [fieldName]: value,
       });
     }
+    setValidation(false);
     dispatch(updateField({ name: fieldName, value }));
   };
 
+  const handleResetForm = (e) => {
+  e.preventDefault();
+  setUpdatedUserData(userData)
+  // setValidation(false)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setIsSending(true);
+    
+    setValidation(true)
     updatedUserData.username = `${updatedUserData.name.firstname} ${updatedUserData.name.lastname}`;
     dispatch(updateUser(updatedUserData));
     saveUserDataToLocalStorage(updatedUserData);
@@ -60,7 +67,7 @@ const UserProfile = () => {
     <div className="content-user-profile">
       <h2>Hi {updatedUserData.name.firstname}!</h2>
       <h3>Customize your profile here</h3>
-      <form className="content-form">
+      <form className="content-form" onSubmit={handleSubmit}>
         <label htmlFor={"firstname"}>
           Your firstname :
           <input
@@ -70,6 +77,7 @@ const UserProfile = () => {
             onChange={handleChange}
             name="firstname"
             id="firstname"
+            required
           />
         </label>
         <label htmlFor={"lastname"}>
@@ -81,6 +89,7 @@ const UserProfile = () => {
             onChange={handleChange}
             name="lastname"
             id="lastname"
+            required
           />
         </label>
         <label htmlFor={"email"}>
@@ -92,10 +101,14 @@ const UserProfile = () => {
             onChange={handleChange}
             name="email"
             id="email"
+            required
           />
         </label>
-        {isSending === true ? <p>Data saved</p> : null}
-        <Button onClick={handleSubmit} text="Save"/>
+        {validation === true ?  <p className="validation-message">Data saved</p>: ""}
+        <div className="position-buttons-form">
+        <Button onClick={handleResetForm} text="Reset"/>
+        <Button type="submit" text="Save"/>
+        </div>
       </form>
     </div>
   );

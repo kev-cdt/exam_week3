@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addProduct } from "../../store/slice/cartSlice";
+import { addProduct, totalItems } from "../../store/slice/cartSlice";
 import Button from "../Button/button";
 
 const Product = ({ id, title, price, category, description, image }) => {
@@ -9,6 +9,7 @@ const Product = ({ id, title, price, category, description, image }) => {
     const dispatch = useDispatch();
     const handleAddToCart = () => {
         dispatch(addProduct({ id, title, price, category, description, image, quantity }));
+        dispatch(totalItems());
     };
 
     return (

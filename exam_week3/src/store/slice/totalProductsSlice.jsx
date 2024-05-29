@@ -30,5 +30,5 @@ const totalProductsSlice = createSlice({
     }
 })
 
-export const { addProduct } = totalProductsSlice.actions;
+export const { incrementProductQuantity } = totalProductsSlice.actions;
 export default totalProductsSlice.reducer;

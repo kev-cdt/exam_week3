@@ -1,3 +1,4 @@
+@import './component/Basket/basket.scss';
 @import './component/Button/button.scss';
 @import './component/Header/header.scss';
 @import './component/NavBar/navbar.scss';
@@ -34,4 +35,24 @@ a {
 
 .icon{
     font-size: 16px
+}
+
+// .error-message{
+//     color:var(--error-color)
+//   }
+
+.validation-message{
+    color:green
+}
+
+@media screen and (max-width: 700px) {
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    h1 {
+        font-size: 1.2em;
+    }
 }

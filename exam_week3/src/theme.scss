@@ -9,8 +9,9 @@
     --primary-color: #eab023;
     // background categorie : gris clair
     --secondary-color: #c0c0c0;
-    //pas encore utilisee
     --error-color: #b00020;
+    --validation-color: rgb(4, 107, 4);
+
   }
   
   body.dark-mode {
@@ -19,4 +20,5 @@
     --primary-color: #bb86fc;
     --secondary-color: #03dac6;
     --error-color: #cf6679;
+    --validation-color: rgb(0, 164, 0);
   }
