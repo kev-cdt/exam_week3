@@ -12,6 +12,7 @@ const store = configureStore({
         products: productsSlice,
         user: userProfileSlice,
         cart: cartSlice,
+        totalQuantity: totalQuantitySlice,
     },
 middleware: middlewareEnhancer,
 
