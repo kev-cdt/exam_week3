@@ -1,9 +1,20 @@
-.switchTheme{
-    border:none;
-    background-color: var(--primary-color);
-    font-size: 1em;
-    padding: 0px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.switchTheme {
+  border: none;
+  background-color: unset;
+  font-size: 1em;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: none;
+  box-shadow: none;
+}
+.switchTheme:hover {
+  transform: none;
+}
+
+@media screen and (max-width: 700px) {
+  .switchTheme {
+    flex-direction: column;
+  }
 }

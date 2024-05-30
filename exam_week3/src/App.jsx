@@ -3,7 +3,6 @@ import { routes } from './config/routes.config'
 import Header from './component/Header/header'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import './App.css'
 import './index.scss'
 import { fetchProducts } from './store/slice/productsSlice'
 

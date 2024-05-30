@@ -1,24 +1,21 @@
 :root {
-    //fond de la page : blanc
-    --background-color: #ffffff;
-    //couleur du texte (sauf catégorie) : noir
-    --text-color: #000000;
-    //couleur de la catégorie : gris foncé : à tester
-    --secondary-text-color : #919191;
-    // couleur background jaune de la navbar + bouton
-    --primary-color: #eab023;
-    // background categorie : gris clair
-    --secondary-color: #c0c0c0;
-    --error-color: #b00020;
-    --validation-color: rgb(4, 107, 4);
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --secondary-text-color: rgb(178, 178, 178);
+  --primary-color: #eab023;
+  --faded-primary-color: #eab22378;
+  --secondary-color: #c0c0c0;
+  --error-color: #b00020;
+  --validation-color: rgb(4, 107, 4);
+}
 
-  }
-  
-  body.dark-mode {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --primary-color: #bb86fc;
-    --secondary-color: #03dac6;
-    --error-color: #cf6679;
-    --validation-color: rgb(0, 164, 0);
-  }
+body.dark-mode {
+  --background-color: #444444;
+  --text-color: rgb(225, 225, 225);
+  --secondary-text-color: rgb(96, 96, 96);
+  --primary-color: #242424;
+  --faded-primary-color: #717171bf;
+  --secondary-color: #03dac6;
+  --error-color: #cf6679;
+  --validation-color: rgb(0, 164, 0);
+}

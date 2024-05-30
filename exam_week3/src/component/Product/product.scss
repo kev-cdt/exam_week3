@@ -1,66 +1,68 @@
-@media screen and (max-width: 700px) {
-    .product-container {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
+.product-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+
+  .img-container {
+    min-width: 270px;
+    display: flex;
+    height: initial;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-width: 250px;
+      max-height: 250px;
+      height: 100%;
+      object-fit: contain;
     }
+  }
+
+  .product-informations {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .product-title {
+      display: inline;
+      margin-right: 10px;
+    }
+    .category-card {
+      display: inline;
+      text-wrap: nowrap;
+      padding: 0 10px;
+      border-radius: 3px;
+      background-color: var(--secondary-text-color);
+      width: fit-content;
+      font-size: 12px;
+    }
+    .qty-counter {
+      display: flex;
+      > input {
+        margin-left: 1em;
+        max-width: 30px;
+      }
+    }
+  }
 }
 
-.product-container {
-    display: flex;
-    gap: 20px;
-    width: 100%;
-
+@media screen and (max-width: 700px) {
+  .product-container {
+    flex-direction: column;
+  }
+}
+@media screen and (max-width: 350px) {
+  .product-container {
+    width: 90%;
     .img-container {
-        // width: fit-content;
-        // display: flex;
-        // height: fit-content;
-        // padding: 10px;
-        // background-color: white;
-        // border-radius: 10px;
-        min-width: 270px;
-        display: flex;
-        height: initial;
-        padding: 10px;
-        background-color: white;
-        border-radius: 10px;
-        align-items: center;
-        justify-content: center;
-
-        img {
-            max-width: 250px;
-            max-height: 250px;
-            height: 100%;
-            object-fit: contain;
-        }
+      min-width: 90%;
+      img {
+        max-width: 80%;
+        max-height: auto;
+      }
     }
-
-    .product-informations {
-        display: flex;
-        flex-direction: column;
-        gap: 1em;
-
-        .product-title {
-            display: inline;
-            margin-right: 10px;
-        }
-        .category-card {
-            display: inline;
-            text-wrap: nowrap;
-            padding: 0 10px;
-            border-radius: 3px;
-            background-color: rgb(178, 178, 178);
-            width: fit-content;
-            font-size: 12px;
-        }
-        .qty-counter {
-            display: flex;
-            >input{
-                margin-left: 1em;
-                max-width: 30px;
-            }
-        }
-    }
-
+  }
 }

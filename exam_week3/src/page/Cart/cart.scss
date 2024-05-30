@@ -1,16 +1,15 @@
 .cart-container {
-    display: flex;
-    flex-direction: column;
-    max-width: 1300px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1300px;
+  margin: auto;
 
-    .top-cart-container {
-        display: flex;
-        align-items: start;
-        flex-direction: column;
-        gap: 10px;
-        padding: 20px;
-        border-bottom: 1px solid grey;
-    }
+  .top-cart-container {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 40px 30px;
+    border-bottom: 1px solid grey;
+  }
 }
-    

@@ -4,7 +4,6 @@ import themeSlice from './slice/themeSlice';
 import productsSlice from './slice/productsSlice';
 import userProfileSlice from './slice/userProfileSlice';
 import cartSlice from './slice/cartSlice';
-import totalProductsSlice from './slice/totalProductsSlice';
 
 const middlewareEnhancer = (getDefaultMiddleware) => getDefaultMiddleware().concat(logger);
 const store = configureStore({
@@ -13,7 +12,6 @@ const store = configureStore({
         products: productsSlice,
         user: userProfileSlice,
         cart: cartSlice,
-        totalProducts: totalProductsSlice,
     },
 middleware: middlewareEnhancer,
 

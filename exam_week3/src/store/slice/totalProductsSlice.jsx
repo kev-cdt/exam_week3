@@ -1,34 +1,35 @@
-// import { useSelector } from "react-redux";
+// import { createSlice } from "@reduxjs/toolkit";
 
-// const cartProducts = useSelector(cart);
+// const initialState = {
+//   totalProducts: [],
+// };
 
-// const totalProducts = () => {
-//     let total = 0;
-//     cartProducts.map(product => (total += product.quantity))
-//     return total;
-// }
+// const totalProductsSlice = createSlice({
+//   name: "totalProducts",
+//   initialState,
+//   reducers: {
+//     incrementProductQuantity: (state, action) => {
+//       const { id, title, price, category, description, image, quantity } =
+//         action.payload;
+//       const existingProduct = state.totalProducts.find(
+//         (product) => product.id === id
+//       );
+//       if (existingProduct) {
+//         existingProduct.quantity += quantity;
+//       } else {
+//         state.totalProducts.push({
+//           id,
+//           title,
+//           price,
+//           category,
+//           description,
+//           image,
+//           quantity,
+//         });
+//       }
+//     },
+//   },
+// });
 
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-    totalProducts: [],
-}
-
-const totalProductsSlice = createSlice({
-    name: 'totalProducts',
-    initialState,
-    reducers: {
-        incrementProductQuantity: (state, action) => {
-            const { id, title, price, category, description, image, quantity } = action.payload;
-            const existingProduct = state.totalProducts.find(product => product.id === id);
-            if (existingProduct) {
-                existingProduct.quantity += quantity;
-            } else {
-                state.totalProducts.push({ id, title, price, category, description, image, quantity });
-            }
-        },
-    }
-})
-
-export const { incrementProductQuantity } = totalProductsSlice.actions;
-export default totalProductsSlice.reducer;
+// export const { incrementProductQuantity } = totalProductsSlice.actions;
+// export default totalProductsSlice.reducer;

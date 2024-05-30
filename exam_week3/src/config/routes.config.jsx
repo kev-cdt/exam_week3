@@ -2,6 +2,7 @@ import Home from "../page/Home/home";
 import Cart from "../page/Cart/cart";
 import UserProfile from "../page/UserProfile/userProfile";
 
+
 export const routes = {
     home: {
         label: "Home",
@@ -17,7 +18,12 @@ export const routes = {
         label: 'userProfile',
         path: '/user',
         element: <UserProfile />,
-    }
+    },
+    redirect: {
+        label: "Home",
+        path: '*',
+        element: <Home />,
+    },
 }
 
 export const generatePath = (name, params = null) => {

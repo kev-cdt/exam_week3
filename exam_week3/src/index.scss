@@ -1,58 +1,11 @@
-@import './component/Basket/basket.scss';
-@import './component/Button/button.scss';
-@import './component/Header/header.scss';
-@import './component/NavBar/navbar.scss';
-@import './component/Product/product.scss';
-@import './component/ProductsList/productsList.scss';
-@import './component/ThemeSwitcher/themeSwitcher.scss';
-@import './page/Cart/cart.scss';
-@import './page/Home/home.scss';
-@import './page/UserProfile/userProfile.scss';
-@import './theme.scss';
-
-:root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-    color: var(--text-color)
-}
-
-
-body{
-    background-color: var(--background-color);
-}
-
-h1, h2, h3, h4, p, label {
-    color: var(--text-color);
-    margin:0px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-color);
-    cursor:pointer
-}
-
-.icon{
-    font-size: 16px
-}
-
-// .error-message{
-//     color:var(--error-color)
-//   }
-
-.validation-message{
-    color:green
-}
-
-@media screen and (max-width: 700px) {
-    h1 {
-        font-size: 1.5em;
-    }
-}
-
-@media screen and (max-width: 500px) {
-    h1 {
-        font-size: 1.2em;
-    }
-}
+@import "./component/Basket/basket.scss";
+@import "./component/Button/button.scss";
+@import "./component/Header/header.scss";
+@import "./component/NavBar/navbar.scss";
+@import "./component/Product/product.scss";
+@import "./component/ProductsList/productsList.scss";
+@import "./component/ThemeSwitcher/themeSwitcher.scss";
+@import "./page/Cart/cart.scss";
+@import "./page/UserProfile/userProfile.scss";
+@import "./theme.scss";
+@import "./main.scss";

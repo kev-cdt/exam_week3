@@ -1,22 +1,114 @@
-.navlinks-container {
+#burger-menu {
+  #menu-toggle {
+    display: none;
+  }
+
+  .menu-button-container {
+    display: none;
+    height: 100%;
+    width: 30px;
+    cursor: pointer;
+  
+    .menu-button,
+    .menu-button::before,
+    .menu-button::after {
+      display: block;
+      background-color: var(--text-color);
+      position: absolute;
+      height: 3px;
+      width: 30px;
+      transition-duration: 0.5s;
+      border-radius: 2px;
+    }
+
+    .menu-button::before {
+      content: "";
+      margin-top: -8px;
+    }
+
+    .menu-button::after {
+      content: "";
+      margin-top: 8px;
+    }
+  }
+
+  #menu-toggle:checked + .menu-button-container .menu-button::before {
+    margin-top: 0px;
+    transform: rotate(45deg);
+  }
+
+  #menu-toggle:checked + .menu-button-container .menu-button {
+    background: rgba(255, 255, 255, 0);
+  }
+
+  #menu-toggle:checked + .menu-button-container .menu-button::after {
+    margin-top: 0px;
+    transform: rotate(-45deg);
+  }
+
+  .menu {
     display: flex;
-    align-items: center;
-    gap: 2em;
+    flex-direction: row;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    > li {
+      display: flex;
+      margin: 0 1rem;
+      overflow: hidden;
+    }
+    .navlink {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
 
-    .navlink{
+  @media screen and (max-width: 700px) {
+    #menu-toggle ~ .menu li {
+      height: 0;
+      margin: 0;
+      padding: 0;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      border: 0px;
+    }
+
+    #menu-toggle:checked ~ .menu li {
+      height: 3em;
+      padding: 0.5em;
+      transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
+      border-bottom: 1px solid #ffffff4f;
+    }
+
+    .menu-button-container {
+      display: flex;
+    }
+
+    .menu {
+      position: absolute;
+      top: 0;
+      margin-top: 46px;
+      left: 0;
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: end;
+      > li {
         display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    @media screen and (max-width: 700px) {
-        gap: 1em;
-
-        .navlink, .switchTheme{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
+        justify-content: center;
+        margin: 0;
+        padding: 0.5em 0;
+        width: 20%;
+        min-width: 150px;
+        color: white;
+        background-color: var(--primary-color);
+        .navlink {
+          flex-direction: column;
         }
+      }
+      >li:last-child {
+        border-radius: 0 0 0 5px;
+      }
     }
+  }
 }

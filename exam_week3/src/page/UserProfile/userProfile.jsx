@@ -11,9 +11,8 @@ import Button from "../../component/Button/button";
 const UserProfile = () => {
   const dispatch = useDispatch();
   const userData = useSelector(user);
-  //   console.log("user data", userData)
   const [updatedUserData, setUpdatedUserData] = useState(userData);
-  const [validation, setValidation] = useState(false)
+  const [validation, setValidation] = useState(null);
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -44,23 +43,32 @@ const UserProfile = () => {
         [fieldName]: value,
       });
     }
-    setValidation(false);
+    setValidation(null);
     dispatch(updateField({ name: fieldName, value }));
   };
 
   const handleResetForm = (e) => {
-  e.preventDefault();
-  setUpdatedUserData(userData)
-  // setValidation(false)
-  }
+    e.preventDefault();
+    setUpdatedUserData(userData);
+  };
 
+  const resetMessage = () => {
+    setTimeout(() => {
+      setValidation(null);
+    }, 2500);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    setValidation(true)
+    if (JSON.stringify(updatedUserData) === JSON.stringify(userData)) {
+      setValidation(false);
+      resetMessage();
+      return;
+    }
+    setValidation(true);
     updatedUserData.username = `${updatedUserData.name.firstname} ${updatedUserData.name.lastname}`;
     dispatch(updateUser(updatedUserData));
     saveUserDataToLocalStorage(updatedUserData);
+    resetMessage();
   };
 
   return (
@@ -68,7 +76,7 @@ const UserProfile = () => {
       <h2>Hi {updatedUserData.name.firstname}!</h2>
       <h3>Customize your profile here</h3>
       <form className="content-form" onSubmit={handleSubmit}>
-        <label htmlFor={"firstname"}>
+        <label className="label-form-user" htmlFor={"firstname"}>
           Your firstname :
           <input
             className="input-form-user-profile"
@@ -80,7 +88,7 @@ const UserProfile = () => {
             required
           />
         </label>
-        <label htmlFor={"lastname"}>
+        <label className="label-form-user" htmlFor={"lastname"}>
           Your lastname :
           <input
             className="input-form-user-profile"
@@ -92,7 +100,7 @@ const UserProfile = () => {
             required
           />
         </label>
-        <label htmlFor={"email"}>
+        <label className="label-form-user" htmlFor={"email"}>
           Your email :
           <input
             className="input-form-user-profile"
@@ -104,11 +112,15 @@ const UserProfile = () => {
             required
           />
         </label>
-        {validation === true ?  <p className="validation-message">Data saved</p>: ""}
         <div className="position-buttons-form">
-        <Button onClick={handleResetForm} text="Reset"/>
-        <Button type="submit" text="Save"/>
+          <Button onClick={handleResetForm} text="Reset" />
+          <Button type="submit" text="Save" />
         </div>
+        {validation === true ? (
+          <p className="validation-message">The data has been recorded</p>
+        ) : validation === false ? (
+          <p className="error-message">The data has not been modified</p>
+        ) : null}
       </form>
     </div>
   );

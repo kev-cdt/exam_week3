@@ -1,13 +1,14 @@
 header {
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 30px;
-    position: sticky;
-    top: 0px;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 30px;
+  position: sticky;
+  top: 0px;
+  z-index: 100;
 
-    @media screen and (max-width: 700px) {
-        padding: 5px 10px;
-    }
+  @media screen and (max-width: 700px) {
+    padding: 5px 10px;
+  }
 }
