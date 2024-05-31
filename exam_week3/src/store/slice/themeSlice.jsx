@@ -1,9 +1,24 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const savedTheme = JSON.parse(localStorage.getItem("currentTheme"));
+const getThemeFromLocalStorage = () => {
+  try {
+    const savedTheme = localStorage.getItem("currentTheme");
+
+    if (savedTheme === null) {
+      return "light";
+    }
+
+    return JSON.parse(savedTheme);
+  } catch (error) {
+    console.error('Error retrieving Theme from localStorage:', error);
+
+    return "light";
+  }
+};
 
 const initialState = {
-  theme: savedTheme || "light",
+  theme: getThemeFromLocalStorage(),
+
 };
 const themeSlice = createSlice({
   name: "theme",

@@ -41,9 +41,31 @@
     }
     .qty-counter {
       display: flex;
+      align-items: center;
+      .qty-text {
+        display: flex;
+        padding: 0 10px;
+      }
+      .qty-btn {
+        padding: 0 8px;
+        background-color: transparent;
+        font-size: 1em;
+      }
+      .qty-btn:hover {
+        background-color: var(--faded-primary-color);
+        transform: scale(1);
+      }
+      .less-btn {
+        margin-left: 15px;
+      }
+      .product-list-qty input[type=number]::-webkit-inner-spin-button, 
+      .product-list-qty input[type=number]::-webkit-outer-spin-button{
+        -webkit-appearance: none;
+      }
       > input {
-        margin-left: 1em;
         max-width: 30px;
+        text-align: center;
+        border: none;
       }
     }
   }

@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { baseUrl } from "../../config/routes.config";
 
 const initialState = {
   user: {
@@ -23,28 +24,29 @@ const initialState = {
     },
     phone: "1-570-236-7033",
   },
+  userErrors:"",
 };
 
 export const fetchUser = createAsyncThunk(
   "fetchUser",
-  async (_, { rejectWithValue }) => {
+    async() => {
     try {
       const userFromLocalStorage = localStorage.getItem("userData");
       return userFromLocalStorage
         ? JSON.parse(userFromLocalStorage)
         : initialState.user;
-    } catch (e) {
-      return rejectWithValue(e.message);
+    } catch (error) {
+      initialState.userErrors = error
     }
   }
 );
 
 export const updateUser = createAsyncThunk(
   "updateUser",
-  async (user, { rejectWithValue }) => {
+  async (user) => {
     try {
       const res = await axios.patch(
-        "https://fakestoreapi.com/users/1",
+        `${baseUrl}/users/1`,
         JSON.stringify(user),
         {
           headers: {
@@ -52,10 +54,9 @@ export const updateUser = createAsyncThunk(
           },
         }
       );
-      console.log("update user", res.data);
       return res.data;
-    } catch (e) {
-      return rejectWithValue(e.message);
+    } catch (error) {
+      initialState.userErrors = error;
     }
   }
 );
@@ -81,6 +82,7 @@ const userProfileSlice = createSlice({
       })
       .addCase(fetchUser.rejected, (state) => {
         state.loadingState = "error";
+        state.userErrors = "Oops! Something went wrong when accessing your profile. Please try again later.";
         state.user = {};
       })
       .addCase(updateUser.pending, (state) => {
@@ -93,6 +95,7 @@ const userProfileSlice = createSlice({
       })
       .addCase(updateUser.rejected, (state) => {
         state.loadingState = "error";
+        state.userErrors = "Oops! Something went wrong, changes were not applied. Please try again later.";
         state.user = {};
       });
   },

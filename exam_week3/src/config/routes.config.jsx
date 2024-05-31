@@ -36,3 +36,5 @@ export const generatePath = (name, params = null) => {
     })
     return path;
 }
+
+export const baseUrl = "https://fakestoreapi.com"

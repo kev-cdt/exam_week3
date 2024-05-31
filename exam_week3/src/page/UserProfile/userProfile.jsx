@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { user } from "../../store/selector/selector";
 import {
   fetchUser,
   updateUser,
   updateField,
 } from "../../store/slice/userProfileSlice";
-import { user } from "../../store/selector/selector";
 import Button from "../../component/Button/button";
 
 const UserProfile = () => {
@@ -13,16 +13,6 @@ const UserProfile = () => {
   const userData = useSelector(user);
   const [updatedUserData, setUpdatedUserData] = useState(userData);
   const [validation, setValidation] = useState(null);
-
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, []);
-
-  useEffect(() => {
-    if (Object.keys(userData).length > 0) {
-      setUpdatedUserData(userData);
-    }
-  }, [userData]);
 
   const saveUserDataToLocalStorage = (userData) => {
     localStorage.setItem("userData", JSON.stringify(userData));
@@ -57,6 +47,7 @@ const UserProfile = () => {
       setValidation(null);
     }, 2500);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (JSON.stringify(updatedUserData) === JSON.stringify(userData)) {
@@ -71,8 +62,19 @@ const UserProfile = () => {
     resetMessage();
   };
 
+  useEffect(() => {
+    dispatch(fetchUser());
+  }, []);
+
+  useEffect(() => {
+    if (Object.keys(userData).length > 0) {
+      setUpdatedUserData(userData);
+    }
+  }, [userData]);
+
   return (
     <div className="content-user-profile">
+
       <h2>Hi {updatedUserData.name.firstname}!</h2>
       <h3>Customize your profile here</h3>
       <form className="content-form" onSubmit={handleSubmit}>

@@ -8,14 +8,17 @@ import { useEffect} from 'react';
 const ThemeSwitcher = () => {
     const savedTheme = JSON.parse(localStorage.getItem("currentTheme"));
     const currentTheme = useSelector(theme);
-    console.log("current Theme",currentTheme)
     const dispatch = useDispatch();
 
     const saveCurrentThemeToLocalStorage = (theme) => {
         localStorage.setItem("currentTheme", JSON.stringify(theme));
     };
 
-    //Permet de garder le theme clique meme avec un refresh : premier rendu
+    const handleSwitchTheme = (e) => {
+        e.preventDefault();
+        dispatch(toggleTheme())
+    }
+
     useEffect(() => {
         if(savedTheme){
             document.body.className = savedTheme === 'dark' ? 'dark-mode' : '';
@@ -31,12 +34,6 @@ const ThemeSwitcher = () => {
             saveCurrentThemeToLocalStorage(currentTheme);
         }
     }, [currentTheme]);
-    
-
-    const handleSwitchTheme = (e) => {
-        e.preventDefault();
-        dispatch(toggleTheme())
-    }
 
     return (
         <button className="switchTheme" onClick={handleSwitchTheme}>

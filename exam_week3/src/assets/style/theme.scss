@@ -10,6 +10,7 @@
 }
 
 body.dark-mode {
+  transition: color .8s, background-color .8s;
   --background-color: #444444;
   --text-color: rgb(225, 225, 225);
   --secondary-text-color: rgb(96, 96, 96);

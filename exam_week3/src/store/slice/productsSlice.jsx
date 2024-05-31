@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { baseUrl } from "../../config/routes.config";
 import axios from "axios";
 
 const initialState = {
@@ -11,17 +12,15 @@ const initialState = {
     description: "",
     image: "",
   },
-  fecthErrors: "",
+  onFetchError:"",
 };
 
 export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
   try {
-      const res = await axios.get("https://fakestoreapi.com/products")
+      const res = await axios.get(`${baseUrl}/products`)
       return res.data;
     } catch (error) {
-      console.error('Error fetching data:', error);
-      // window.alert('Oops! Something went wrong. Please try again later.', error)
-      initialState.fecthErrors = error; // Re-throw the error to propagate it further
+      initialState.onFetchError = error;
     }
 })
 
@@ -42,7 +41,7 @@ const productSlice = createSlice({
       .addCase(fetchProducts.rejected, (state) => {
         state.loadingState = "error";
         state.products = [];
-        state.fecthErrors = "Oops! Something went wrong. Please try again later.";
+        state.onFetchError = "Oops! Something went wrong. Please try again later.";
       });
   },
 });
