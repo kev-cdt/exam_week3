@@ -16,6 +16,26 @@ const NavBar = () => {
     useEffect(() => {
         dispatch(totalItems());
     });
+
+    const handleClickOutside = (event) => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const burgerMenu = document.getElementById("burger-menu");
+
+        if (menuToggle.checked && !burgerMenu.contains(event.target)) {
+            menuToggle.checked = false;
+        }
+        else{
+            return
+        }
+    };
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, []);
+
     const closeMenu = () => {
         document.getElementById("menu-toggle").checked = false;
     };

@@ -14,17 +14,6 @@ const initialState = {
   fecthErrors: "",
 };
 
-// export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
-//   const res = await axios.get("https://fakestoreapi.com/products")
-//   return res.data;
-// });
-
-// export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
-//   const res = await axios.get("https://fakestoreapi.com/products")
-//   .catch(err => console.log('Error' + err.message));
-//   return res.data;
-// });
-
 export const fetchProducts = createAsyncThunk("fetchProducts", async () => {
   try {
       const res = await axios.get("https://fakestoreapi.com/products")
